@@ -45,10 +45,10 @@ module OmniAuth
         @raw_info ||= begin
           params = {
             headers: {
-              "Content-Type" => "application/x-www-form-urlencoded"
+              "Content-Type" => "application/x-www-form-urlencoded",
+              "Authorization" => "Bearer #{access_token.token}",
             },
             body: {
-              token: access_token.token,
               sync_token: "*",
               resource_types: '["user"]'
             }
