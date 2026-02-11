@@ -8,7 +8,7 @@ module OmniAuth
       option :name, "todoist"
 
       option :client_options, {
-        site:          "https://todoist.com",
+        site:          "https://api.todoist.com",
         authorize_url: "/oauth/authorize",
         token_url:     "/oauth/access_token"
       }
@@ -53,7 +53,7 @@ module OmniAuth
               resource_types: '["user"]'
             }
           }
-          access_token.post("https://api.todoist.com/sync/v9/sync", params).parsed.fetch('user', {})
+          access_token.post("https://api.todoist.com/api/v1/sync", params).parsed.fetch('user', {})
         end
       end
 
